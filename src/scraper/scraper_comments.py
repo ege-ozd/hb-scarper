@@ -11,7 +11,7 @@ def get_product_reviews(driver, base_url, max_pages=30):
         clean_url = clean_url + "-yorumlari"
 
     for page_num in range(1, max_pages + 1):
-        # URL yapısını garantiye alıyoruz
+        
         page_url = f"{clean_url}?sayfa={page_num}"
         print(f"Yorumlar: Sayfa {page_num} deneniyor -> {page_url}")
 
@@ -37,7 +37,7 @@ def get_product_reviews(driver, base_url, max_pages=30):
         for card in cards:
             # --- YILDIZ (PUAN) HESAPLAMA ---
             rating = 0
-            # Senin verdiğin RatingPointer konteynerini buluyoruz
+            
             # class ismi 'hermes-RatingPointer-module-' ile başlayan div'i arıyoruz
             rating_container = card.find("div", class_=lambda x: x and x.startswith("hermes-RatingPointer-module-"))
 
