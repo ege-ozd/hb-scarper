@@ -105,7 +105,7 @@ def run_tfidf_analysis(input_path, output_path, top_n=50):
 if __name__ == "__main__":
     # Define paths based on your project structure
 
-    INPUT_FILE = "/Users/tugberkozdemir/PycharmProjects/hb-nlp/data/processed/tum_yorumlar_1_2_3_puan.csv"
-    OUTPUT_FILE = "/Users/tugberkozdemir/PycharmProjects/hb-nlp/data/processed/tfidf_1_2_3_puan.csv"
+    INPUT_FILE = "/data/processed/tum_yorumlar_1_2_3_puan.csv"
+    OUTPUT_FILE = "/data/processed/tfidf_1_2_3_puan.csv"
 
     run_tfidf_analysis(INPUT_FILE, OUTPUT_FILE)
