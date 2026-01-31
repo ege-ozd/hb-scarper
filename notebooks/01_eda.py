@@ -7,10 +7,10 @@ from collections import Counter
 from nltk import ngrams
 
 # 1. Veriyi Yükle
-df = pd.read_csv("/Users/tugberkozdemir/PycharmProjects/hb-nlp/data/processed/tum_yorumlar_cleaned.csv")
+df = pd.read_csv("data/processed/tum_yorumlar_cleaned.csv")
 text_data = df['cleaned_yorum'].dropna()
 
-# 2. En Çok Geçen Kelimeler (Unigrams)
+# 2. En Çok Geçen Kelimeler
 all_words = " ".join(text_data).split()
 word_freq = Counter(all_words)
 common_words = pd.DataFrame(word_freq.most_common(20), columns=['Kelime', 'Frekans'])
