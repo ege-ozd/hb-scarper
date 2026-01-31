@@ -3,8 +3,8 @@ import os
 from src.analysis.pattern_matcher import AirfryerPatternMatcher
 
 def run_insight_analysis():
-    input_path = "/Users/tugberkozdemir/PycharmProjects/hb-nlp/data/processed/tum_yorumlar_cleaned.csv"
-    output_path = "/Users/tugberkozdemir/PycharmProjects/hb-nlp/data/processed/tum_yorumlar_with_insights.csv"
+    input_path = "/data/processed/tum_yorumlar_cleaned.csv"
+    output_path = "/data/processed/tum_yorumlar_with_insights.csv"
 
     if not os.path.exists(input_path):
         print("Hata: Veri bulunamadı!")
@@ -15,13 +15,11 @@ def run_insight_analysis():
 
     print("Kalıplar 'puan' desteği ile analiz ediliyor...")
 
-    # DİKKAT: Burada puan sütununu da matcher'a gönderiyoruz
     df['insight_category'] = df.apply(
         lambda row: matcher.cluster_by_pattern(row['cleaned_yorum'], row['puan']),
         axis=1
     )
 
-    # Bağlam analizini kontrol için tutalım (Şimdilik tüm gri kelimeler için)
     gri_list = ["gerek yok", "ürün çok", "daha iyi", "daha önce"]
     def get_all_contexts(text):
         contexts = []
