@@ -9,14 +9,13 @@ def generate_tfidf_wordcloud(input_path, output_path):
     df = pd.read_csv(input_path)
 
     # Convert the dataframe into a dictionary: { 'term': score }
-    # This tells the wordcloud exactly how big to draw each word
+    
     weights = dict(zip(df['term'], df['tfidf_score']))
 
     print("Generating Word Cloud...")
 
     # Initialize WordCloud
-    # font_path: We point to Arial on Mac to ensure Turkish characters (ş, ı, ğ) render correctly.
-    # If this path doesn't exist, remove the 'font_path' argument.
+    
     wc = WordCloud(
         width=1600,
         height=800,
@@ -26,7 +25,7 @@ def generate_tfidf_wordcloud(input_path, output_path):
         max_words=100
     )
 
-    # key step: generate from the frequencies we calculated
+    
     wc.generate_from_frequencies(weights)
 
     # Show the plot
@@ -44,7 +43,7 @@ def generate_tfidf_wordcloud(input_path, output_path):
 
 if __name__ == "__main__":
     # Define paths
-    INPUT_FILE = "/Users/tugberkozdemir/PycharmProjects/hb-nlp/data/processed/tfidf_keywords.csv"
-    OUTPUT_IMAGE = "/Users/tugberkozdemir/PycharmProjects/hb-nlp/data/processed/tfidf_wordcloud.png"
+    INPUT_FILE = "/data/processed/tfidf_keywords.csv"
+    OUTPUT_IMAGE = "/data/processed/tfidf_wordcloud.png"
 
     generate_tfidf_wordcloud(INPUT_FILE, OUTPUT_IMAGE)
