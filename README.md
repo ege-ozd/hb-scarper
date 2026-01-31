@@ -1,21 +1,26 @@
 # Hepsiburada NLP & Review Analysis (Airfryer Case Study)
 
-Bu proje, Hepsiburada üzerindeki "Airfryer" (Fritöz) kategorisindeki en popüler ürünlere ait kullanıcı yorumlarını ve soru-cevap verilerini toplayarak; Doğal Dil İşleme (NLP), Duygu Analizi (Sentiment Analysis) ve TF-IDF yöntemleriyle tüketici içgörüleri çıkaran kapsamlı bir veri madenciliği çalışmasıdır.
+Bu proje, Hepsiburada üzerindeki "Airfryer" (Fritöz) kategorisindeki en popüler ürünlere ait kullanıcı yorumlarını ve soru-cevap verilerini toplayarak; Doğal Dil İşleme (NLP), Duygu Analizi (Sentiment Analysis) ve TF-IDF yöntemleriyle tüketici içgörüleri çıkaran kapsamlı bir veri madenciliği ve strateji geliştirme çalışmasıdır.
 
 ## 📂 Proje Yapısı
+
+Proje, verinin toplanmasından analiz edilmesine kadar modüler bir mimari ile kurgulanmıştır:
 
 ```text
 hb-nlp/
 ├── data/
-│   ├── processed/          # İşlenmiş ve analize hazır veriler (TF-IDF çıktıları, temizlenmiş CSV'ler)
-│   └── raw/                # Scraper ile çekilen ham veriler (yorumlar, soru-cevaplar)
-├── notebooks/              # EDA ve Pattern analizleri için Jupyter/Python notebookları
+│   ├── processed/          # Temizlenmiş veriler, TF-IDF sonuçları ve WordCloud görselleri
+│   └── raw/                # Scraper ile çekilen ham veriler (csv)
+├── notebooks/              # EDA (Keşifçi Veri Analizi) ve Pattern denemeleri
 ├── src/
-│   ├── analysis/           # NLP, Temizlik ve Analiz modülleri
-│   │   ├── cleaner.py      # Veri temizliği ve ön işleme
-│   │   ├── tfidf_analyzer.py # TF-IDF algoritması
-│   │   └── ...
-│   ├── scraper/            # Hepsiburada veri kazıma botları
+│   ├── analysis/           # NLP ve Analiz Motoru
+│   │   ├── cleaner.py      # Metin temizliği ve ön işleme (Stopwords, Regex)
+│   │   ├── tfidf_analyzer.py # TF-IDF algoritma modülü
+│   │   ├── pattern_matcher.py # Kural tabanlı etiketleme
+│   │   └── generate_wordcloud.py # Görselleştirme
+│   ├── scraper/            # Veri Toplama Modülü
+│   │   ├── scraper_comments.py
+│   │   └── scraper_qna.py
 │   └── main.py             # Ana çalıştırma dosyası
 ├── requirements.txt        # Gerekli kütüphaneler
 └── README.md               # Proje dokümantasyonu
