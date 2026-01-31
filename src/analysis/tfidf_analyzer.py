@@ -76,7 +76,7 @@ def run_tfidf_analysis(input_path, output_path, top_n=100):
 
     # 4. Aggregate Scores (Global Importance)
     # We calculate the mean TF-IDF score for each column (term)
-    # Note: We convert to array because tfidf_matrix is a sparse matrix
+
     print("Calculating mean scores...")
     mean_scores = np.array(tfidf_matrix.mean(axis=0)).flatten()
 
@@ -106,7 +106,7 @@ def run_tfidf_analysis(input_path, output_path, top_n=100):
 if __name__ == "__main__":
     # Define paths based on your project structure
 
-    INPUT_FILE = "/Users/tugberkozdemir/PycharmProjects/hb-nlp/data/processed/tum_yorumlar_cleaned.csv"
-    OUTPUT_FILE = "/Users/tugberkozdemir/PycharmProjects/hb-nlp/data/processed/tfidf_keywords.csv"
+    INPUT_FILE = "/data/processed/tum_yorumlar_cleaned.csv"
+    OUTPUT_FILE = "/data/processed/tfidf_keywords.csv"
 
     run_tfidf_analysis(INPUT_FILE, OUTPUT_FILE)
