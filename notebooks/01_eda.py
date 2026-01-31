@@ -7,7 +7,7 @@ from collections import Counter
 from nltk import ngrams
 
 # 1. Veriyi Yükle
-df = pd.read_csv("data/processed/tum_yorumlar_cleaned.csv")
+df = pd.read_csv("/data/processed/tum_yorumlar_cleaned.csv")
 text_data = df['cleaned_yorum'].dropna()
 
 # 2. En Çok Geçen Kelimeler
