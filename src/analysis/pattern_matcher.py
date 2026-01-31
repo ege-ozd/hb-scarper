@@ -18,7 +18,7 @@ class AirfryerPatternMatcher:
         # 1. LOJİSTİK ANALİZİ
         if any(w in text for w in ["hizli geldi", "hızlı geldi", "kargo hizli", "kısa sürede", "elime ulasti"]):
             if is_negative:
-                tags.append("Lojistik Şikayeti") # 1-3 puan verip hızı övmez, sorun vardır.
+                tags.append("Lojistik Şikayeti") 
             else:
                 tags.append("Lojistik Memnuniyeti")
 
@@ -32,10 +32,10 @@ class AirfryerPatternMatcher:
 
         # 3. "GEREK YOK" ANALİZİ
         if "gerek yok" in text:
-            # 1-2-3 puan ise her zaman "Ürün Gereksiz/Kötü"
+            
             if is_negative:
                 tags.append("Negatif: Ürün Gereksizliği")
-            # 4-5 puan ise "Fiyat/Performans veya Tasarruf"
+            
             elif any(w in text for w in ["para", "yağ", "yag", "ekstra", "fırın", "firin", "başka"]):
                 tags.append("Pozitif: Verimlilik/Tasarruf")
             else:
