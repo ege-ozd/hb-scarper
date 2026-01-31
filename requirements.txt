@@ -1,0 +1,11 @@
+pandas
+numpy
+scikit-learn
+nltk
+matplotlib
+wordcloud
+requests
+beautifulsoup4
+tqdm
+selenium
+webdriver-manager
