@@ -5,8 +5,8 @@ from src.analysis.cleaner import TurkishDataCleaner
 
 def main():
     # 1. Ayarlar
-    RAW_PATH = "/Users/tugberkozdemir/PycharmProjects/hb-nlp/data/raw/tum_yorumlar.csv"
-    PROCESSED_PATH = "/Users/tugberkozdemir/PycharmProjects/hb-nlp/data/processed/tum_yorumlar_cleaned.csv"
+    RAW_PATH = "/data/raw/tum_yorumlar.csv"
+    PROCESSED_PATH = "/data/processed/tum_yorumlar_cleaned.csv"
 
     # 2. Veriyi Yükle
     print("Veri yükleniyor...")
@@ -15,9 +15,8 @@ def main():
     # 3. Temizlik İşlemini Başlat
     cleaner = TurkishDataCleaner()
 
-    # Varsayalım ki yorumlar sütununun adı 'yorum' veya 'comment'
-    # Kendi CSV sütun adınla değiştir (Örn: 'content', 'text' vb.)
-    target_column = 'yorum'  # Burayı CSV'ndeki başlığa göre güncelle!
+    
+    target_column = 'yorum'  
 
     if target_column in df.columns:
         df = cleaner.apply_cleaning(df, target_column)
