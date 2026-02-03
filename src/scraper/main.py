@@ -40,7 +40,7 @@ if not os.path.exists('data'):
 
 # Tarayıcıyı Hazırla
 options = webdriver.FirefoxOptions()
-# options.add_argument("--headless") # Gerekirse yorumu kaldırarak gizli modda çalıştırabilirsin
+# options.add_argument("--headless") 
 options.set_preference("general.useragent.override", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0")
 
 driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=options)
